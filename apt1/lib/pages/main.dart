@@ -1,10 +1,8 @@
 import 'package:apt1/pages/details.dart';
 import 'package:flutter/material.dart';
 //import 'package:apt1/pages/main.dart';
-import 'package:apt1/pages/profil.dart';
+import 'package:apt1/pages/home1.dart';
 import 'package:apt1/pages/ajout.dart';
-import 'package:apt1/pages/search.dart';
-
 
 void main() {
   runApp(MaterialApp(
@@ -28,10 +26,9 @@ class HomePage extends StatefulWidget {
 class HomePageStates extends State<HomePage> {
   final pages = [
     HomePage(),
-    searchPage(),
     AjoutPage(),
     DetailsPage(),
-    Profilpage(),
+   // Home1page(),
   ];
   int indexpage = 0;
 
