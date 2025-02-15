@@ -1,8 +1,13 @@
+import 'package:apt1/pages/accueil.dart';
 import 'package:apt1/pages/details.dart';
 import 'package:flutter/material.dart';
 //import 'package:apt1/pages/main.dart';
-import 'package:apt1/pages/home1.dart';
+import 'package:apt1/pages/bookmark.dart';
 import 'package:apt1/pages/ajout.dart';
+import 'package:apt1/pages/profil.dart';
+
+
+
 
 void main() {
   runApp(MaterialApp(
@@ -25,10 +30,12 @@ class HomePage extends StatefulWidget {
 
 class HomePageStates extends State<HomePage> {
   final pages = [
-    HomePage(),
-    AjoutPage(),
+   // HomePage(),
+    AcceuilPage(),
+    SearchPage(),
     DetailsPage(),
-   // Home1page(),
+     BookmarkPage(),
+    ProfilPage(),
   ];
   int indexpage = 0;
 
