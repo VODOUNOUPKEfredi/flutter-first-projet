@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-//import 'package:apt1/pages/bookmark.dart';
+//import 'package:apt1/pages/ajout.dart';
+
+
+
 
 void main() {
   runApp(MaterialApp(
@@ -16,57 +19,67 @@ class BookmarkPage extends StatefulWidget {
 
   @override
   State<BookmarkPage> createState() {
-    return DetailsPageStates();
+    return AjoutPageStates();
   }
 }
 
-class DetailsPageStates extends State<BookmarkPage> {
-  
+class AjoutPageStates extends State<BookmarkPage> {
+ 
  final List<Map<String, dynamic>> images = [
-    {"image": "https://img.freepik.com/free-photo/brazilian-man-having-guarana-drink-outdoors_23-2150765674.jpg?ga=GA1.1.1512817245.1739357619"},
-     {"image": "https://img.freepik.com/free-photo/brazilian-man-having-guarana-drink-outdoors_23-2150765674.jpg?ga=GA1.1.1512817245.1739357619"},
-      {"image": "https://img.freepik.com/free-photo/brazilian-man-having-guarana-drink-outdoors_23-2150765674.jpg?ga=GA1.1.1512817245.1739357619"},
-       {"image": "https://img.freepik.com/free-photo/brazilian-man-having-guarana-drink-outdoors_23-2150765674.jpg?ga=GA1.1.1512817245.1739357619"}
-  ];
-  int indeximage = 0;
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+    {"image": "images1/1.png"},
+ ];
+  
  @override
   Widget build(BuildContext context) {
     EdgeInsets.all(40);
 
     EdgeInsets.only(bottom: 20);
- //double screenWidth = MediaQuery.of(context).size.width;
- //   double screenHeight = MediaQuery.of(context).size.height;
+ double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      body:  SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-              
-              ),
-              child: 
-              ListView(
-                children: [
-                  Row(
-                    children: [
-                      Column(
-                        children: [
-                          Text("Choco Macaron", style: TextStyle(color: Colors.black)),
-                          Text("By Rachelle")
-                        ],
-                      )
-                    ],
-                    
-                  )
-                ],
-              ),
-            )
-          ],
-
-          
+      body:  Container(
+        height: screenHeight*1,
+        child: Padding(
+        padding: EdgeInsets.all(6),
+        child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount
+        (crossAxisCount: 2,
+        crossAxisSpacing: 8,
+        childAspectRatio: 1,
         ),
+         itemCount: images.length,
+        itemBuilder :(context,index){
+return Card(
+  elevation:5,
+  child: Center(
+    child: Image.asset(images[index]['image'],
+    fit: BoxFit.cover,)
+   
+  )
+  ,);
+        }),
+      
       ),
+      )
     );
   }
-  }
-
+}
