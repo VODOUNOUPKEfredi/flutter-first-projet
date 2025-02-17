@@ -39,9 +39,9 @@ class HomePageStates extends State<HomePage> {
   int? selectedIndex;
   @override
   Widget build(BuildContext context) {
-    margin:
+    
     EdgeInsets.all(40);
-    Padding:
+  
     EdgeInsets.only(bottom: 20);
 
     return Scaffold(

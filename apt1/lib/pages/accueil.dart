@@ -24,11 +24,22 @@ class AcceuilPage extends StatefulWidget {
 
 class AcceuilPageStates extends State<AcceuilPage> {
   final List<Map<String, dynamic>> categories = [
-    {"name": "Breakfast", "image": 'images1/1.png'},
-    {"name": "Luch", "image": 'images1/1.png'},
-    {"name": "Dinner", "image": 'images1/1.png'},
-    {"name": "Dessert", "image": 'images1/1.png'},
+    {"name": "Breakfast", "image": 'images1/3.png'},
+    {"name": "Luch", "image": 'images1/3.png'},
+    {"name": "Dinner", "image": 'images1/3.png'},
+    {"name": "Dessert", "image": 'images1/3.png'},
   ];
+  final List<Map<String, dynamic>> Recommandation = [
+    {"name": "Breakfast", "image": 'images1/3.png'},
+    {"name": "Luch", "image": 'images1/4.png'},
+   
+  ];
+  final List<Map<String, dynamic>> Recipes = [
+    {"name": "Breakfast", "image": 'images1/3.png'},
+    {"name": "Breakfast", "image": 'images1/4.png'}
+    
+  ];
+  
   int? selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -62,26 +73,26 @@ class AcceuilPageStates extends State<AcceuilPage> {
             TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(30),
                 ),
                 labelText: "recherche",
                 prefixIcon: Icon(Icons.search),
-                suffixIcon: Icon(Icons.filter_1_outlined),
+                suffixIcon: Icon(Icons.filter_list),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Categories"),
+                Text("Categories" ,style: TextStyle(fontWeight: FontWeight.bold)),
                 SizedBox(height: screenWidth * 0.05),
-                Text("See all"),
+                Text("See all" ,style: TextStyle(fontWeight: FontWeight.bold ,color: Colors.green),),
               ],
             ),
             SizedBox(height: 20),
             Column(
               children: [
                 SizedBox(
-                  height: screenHeight * 0.3,
+                  height: screenHeight * 0.15,
                   width: screenWidth * 1,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -94,9 +105,9 @@ class AcceuilPageStates extends State<AcceuilPage> {
                             });
                           },
                           child: Container(
-                            height: screenHeight * 0.5,
-                            width: screenWidth * 0.3,
-                            margin: EdgeInsets.all(screenWidth * 0.05),
+                            height: screenHeight * 0.05,
+                            width: screenWidth * 0.2,
+                            margin: EdgeInsets.all(screenWidth * 0.01),
                             padding: EdgeInsets.all(screenWidth * 0.01),
                             decoration: BoxDecoration(
                               boxShadow: [
@@ -115,16 +126,13 @@ class AcceuilPageStates extends State<AcceuilPage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Image.network(
+                                Image.asset(
                                   categories[index]["image"]!,
-                                  height: screenHeight * 0.2,
-                                  width: screenWidth * 0.05,
-                                  //fit: BoxFit.cover,
+                                 // height: screenHeight * 0.2,
+                                 // width: screenWidth * 0.5,
+                                  fit: BoxFit.cover,
                                 ),
-                                SizedBox(
-                                  height: screenHeight * 0.1,
-                                  width: screenWidth * 0.05,
-                                ),
+                               
                                 Text(
                                   categories[index]["name"]!,
                                   style: TextStyle(
@@ -138,47 +146,47 @@ class AcceuilPageStates extends State<AcceuilPage> {
                         ),
                   ),
                 ),
-                SizedBox(height: screenWidth * 0.02),
+                SizedBox(height: screenWidth * 0.1),
+
+                 Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Recommendation" ,style: TextStyle(fontWeight: FontWeight.bold )),
+                SizedBox(height: screenWidth * 0.05),
+                Text("See all",style: TextStyle(fontWeight: FontWeight.bold ,color: Colors.green)),
+              ],
+              
+            ),
                 SizedBox(
                   height: screenHeight * 0.3,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: categories.length,
+                    itemCount: Recommandation.length,
                     itemBuilder:
                         (context, index) => GestureDetector(
                           child: Container(
-                            height: screenHeight * 0.1,
-                            width: screenWidth * 0.4,
-                            margin: EdgeInsets.only(right: 10),
+                            height: screenHeight * 0.2,
+                            width: screenWidth * 0.5,
+                            padding: EdgeInsets.all(5),
+                            margin: EdgeInsets.only(right: 5),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                            color: Colors.grey.withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(25),
                             ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                SizedBox(
-                                  width: screenHeight * 0.3,
-                                  height: screenWidth * 0.3,
-                                  child: Image.network(
-                                    categories[index]["image"]!,
+                            child: SizedBox(
+                                //  width: screenHeight * 0.2,
+                                //  height: screenWidth * 0.4,
+                                  child: Image.asset(
+                                    Recommandation[index]["image"]!,
                                     //height: 100,
                                     //width: 200,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                                SizedBox(
-                                  height: screenHeight * 0.05,
-                                  width: screenHeight * 0.1,
-                                ),
-                                Text(
-                                  categories[index]["name"]!,
-                                  style: TextStyle(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
+                            
+                            
+                            
+                          
                           ),
                         ),
                   ),
@@ -189,13 +197,13 @@ class AcceuilPageStates extends State<AcceuilPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Recipes of the Week"),
-                SizedBox(height: screenHeight * 0.05),
-                Text("See all", style: TextStyle(color: Colors.green)),
+                Text("Recipes of the Week" ,style: TextStyle(fontWeight: FontWeight.bold )),
+                SizedBox(height: screenHeight * 0.1),
+                Text("See all", style: TextStyle(color: Colors.green ,fontWeight: FontWeight.bold)),
               ],
             ),
             SizedBox(
-              height: screenHeight * 0.8,
+              height: screenHeight * 0.5,
               width: screenWidth * 1,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
@@ -205,14 +213,14 @@ class AcceuilPageStates extends State<AcceuilPage> {
                       child: Column(
                         children: [
                           Container(
-                            height: screenHeight * 0.3,
-                            width: screenWidth * 0.7,
+                            height: screenHeight * 0.35,
+                            width: screenWidth * 0.8,
                             margin: EdgeInsets.only(right: 10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: Image.network(
-                              categories[index]["image"]!,
+                            child: Image.asset(
+                              Recipes[index]["image"]!,
                               // height: screenHeight*0.8,
                               // width: screenWidth*0.5,
                               fit: BoxFit.cover,
